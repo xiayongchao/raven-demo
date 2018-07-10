@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/raven-core/raven-core.iml" filepath="$PROJECT_DIR$/raven-core/raven-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/raven-demo.iml" filepath="$PROJECT_DIR$/raven-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/raven-simple/raven-simple.iml" filepath="$PROJECT_DIR$/raven-simple/raven-simple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/raven-spring/raven-spring.iml" filepath="$PROJECT_DIR$/raven-spring/raven-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-test/spring-boot-test.iml" filepath="$PROJECT_DIR$/spring-boot-test/spring-boot-test.iml" />
+    </modules>
+  </component>
+</project>
