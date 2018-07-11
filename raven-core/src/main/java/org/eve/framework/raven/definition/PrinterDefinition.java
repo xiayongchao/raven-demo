@@ -9,19 +9,19 @@ import java.util.List;
  * @date 2018/6/19
  */
 public class PrinterDefinition extends AbstractExpansion {
-    private Integer id;
+    private String id;
     private String typeName;
     private PrinterType type;
     private String className;
     private String path;
     private String description;
-    private List<Integer> processorRef;
+    private List<String> processorRef;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -65,11 +65,11 @@ public class PrinterDefinition extends AbstractExpansion {
         this.description = description;
     }
 
-    public List<Integer> getProcessorRef() {
+    public List<String> getProcessorRef() {
         return processorRef;
     }
 
-    public void setProcessorRef(List<Integer> processorRef) {
+    public void setProcessorRef(List<String> processorRef) {
         this.processorRef = processorRef;
     }
 

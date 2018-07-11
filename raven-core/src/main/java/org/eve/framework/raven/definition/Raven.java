@@ -5,16 +5,16 @@ package org.eve.framework.raven.definition;
  * @date 2018/6/19
  */
 public class Raven extends AbstractExpansion {
-    private Integer appId;
+    private String appId;
     private String appName;
     private Configurator configurator;
     private Configuration configuration;
 
-    public Integer getAppId() {
+    public String getAppId() {
         return appId;
     }
 
-    public void setAppId(Integer appId) {
+    public void setAppId(String appId) {
         this.appId = appId;
     }
 

@@ -61,9 +61,6 @@ public class RavenBeanPostProcessor implements MergedBeanDefinitionPostProcessor
                     bean = this.loggerFactory.getBean(className, false);
                     this.beanFactory.registerSingleton(ravenBeanName, bean);
                 }
-                if ("org.eve.framework.log.MyPrintPostProcessor".equals(className)) {
-                    System.out.println("向spring注册org.eve.framework.log.MyPrintPostProcessor");
-                }
                 this.loggerFactory.registerObject(className, ravenBeanName, bean);
             }
         } catch (IOException e) {

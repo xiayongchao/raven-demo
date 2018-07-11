@@ -11,9 +11,9 @@ import java.text.DateFormat;
  */
 public class Metadata extends AbstractExpansion {
     private final long startTime;
-    private final Integer appId;
+    private final String appId;
     private final String appName;
-    private Integer loggerId;
+    private String loggerId;
     private String logName;
     private String shortLogName;
     private LogLevel currentLogLevel;
@@ -30,7 +30,7 @@ public class Metadata extends AbstractExpansion {
     private String warnLevelString;
     private String description;
 
-    public Metadata(long startTime, Integer appId, String appName) {
+    public Metadata(long startTime, String appId, String appName) {
         this.startTime = startTime;
         this.appId = appId;
         this.appName = appName;
@@ -68,7 +68,7 @@ public class Metadata extends AbstractExpansion {
         return startTime;
     }
 
-    public Integer getAppId() {
+    public String getAppId() {
         return appId;
     }
 
@@ -76,11 +76,11 @@ public class Metadata extends AbstractExpansion {
         return appName;
     }
 
-    public Integer getLoggerId() {
+    public String getLoggerId() {
         return loggerId;
     }
 
-    public void setLoggerId(Integer loggerId) {
+    public void setLoggerId(String loggerId) {
         this.loggerId = loggerId;
     }
 

@@ -13,8 +13,8 @@ public class SpringBootTestApplicationTests {
     @Test
     public void contextLoads() throws InterruptedException {
         LoggerFactory.getLogger(TestServiceImpl.class).error("B{}2{}431242", "@", "*");
-        Thread.sleep(15000);
-        LoggerFactory.getLogger(TestServiceImpl.class).error("发发{}大{}发的萨芬撒", "@", "*");
+//        Thread.sleep(15000);
+//        LoggerFactory.getLogger(TestServiceImpl.class).error("发发{}大{}发的萨芬撒", "@", "*");
     }
 
     public static void main(String[] args) throws InterruptedException {

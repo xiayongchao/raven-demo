@@ -7,7 +7,7 @@ import org.eve.framework.raven.constant.ProcessorType;
  * @date 2018/6/19
  */
 public class ProcessorDefinition extends AbstractExpansion {
-    private Integer id;
+    private String id;
     private String typeName;
     private ProcessorType type;
     /**
@@ -16,11 +16,11 @@ public class ProcessorDefinition extends AbstractExpansion {
     private String className;
     private String description;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

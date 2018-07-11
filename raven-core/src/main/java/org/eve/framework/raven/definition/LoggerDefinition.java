@@ -7,36 +7,36 @@ import org.eve.framework.raven.constant.LogLevel;
  * @date 2018/6/19
  */
 public class LoggerDefinition extends AbstractExpansion {
-    private Integer id;
-    private Integer printerRef;
-    private Integer formatterRef;
+    private String id;
+    private String printerRef;
+    private String formatterRef;
     private Boolean transmit;
     private String levelName;
     private LogLevel level;
     private String scope;
     private String description;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Integer getPrinterRef() {
+    public String getPrinterRef() {
         return printerRef;
     }
 
-    public void setPrinterRef(Integer printerRef) {
+    public void setPrinterRef(String printerRef) {
         this.printerRef = printerRef;
     }
 
-    public Integer getFormatterRef() {
+    public String getFormatterRef() {
         return formatterRef;
     }
 
-    public void setFormatterRef(Integer formatterRef) {
+    public void setFormatterRef(String formatterRef) {
         this.formatterRef = formatterRef;
     }
 

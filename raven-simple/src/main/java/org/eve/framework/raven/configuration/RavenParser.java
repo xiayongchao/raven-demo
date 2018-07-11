@@ -92,7 +92,7 @@ public class RavenParser {
             return null;
         }
         Raven raven = new Raven();
-        raven.setAppId(XmlUtils.getIntegerValue(ravenElement, "appId", null));
+        raven.setAppId(XmlUtils.getStringValue(ravenElement, "appId", null));
         raven.setAppName(XmlUtils.getStringValue(ravenElement, "appName", null));
         raven.setConfigurator(this.parseConfigurator(ravenElement));
         raven.setConfiguration(this.parseConfiguration(ravenElement));
@@ -180,7 +180,7 @@ public class RavenParser {
 
     private ProcessorDefinition parseProcessor(Element processorElement) {
         ProcessorDefinition processorDefinition = new ProcessorDefinition();
-        processorDefinition.setId(XmlUtils.getIntegerAttribute(processorElement, "id", null));
+        processorDefinition.setId(XmlUtils.getStringAttribute(processorElement, "id", null));
         processorDefinition.setClassName(XmlUtils.getStringAttribute(processorElement, "class", null));
         processorDefinition.setTypeName(XmlUtils.getStringAttribute(processorElement, "type", null));
         processorDefinition.setDescription(XmlUtils.getStringValue(processorElement, "description", null));
@@ -189,7 +189,7 @@ public class RavenParser {
 
     private FormatterDefinition parseFormatter(Element formatterElement) {
         FormatterDefinition formatterDefinition = new FormatterDefinition();
-        formatterDefinition.setId(XmlUtils.getIntegerAttribute(formatterElement, "id", null));
+        formatterDefinition.setId(XmlUtils.getStringAttribute(formatterElement, "id", null));
         formatterDefinition.setClassName(XmlUtils.getStringAttribute(formatterElement, "class", null));
         formatterDefinition.setDateTimeFormat(XmlUtils.getStringValue(formatterElement, "dateTimeFormat", null));
         formatterDefinition.setShowDateTime(XmlUtils.getBooleanValue(formatterElement, "showDateTime", null));
@@ -201,44 +201,32 @@ public class RavenParser {
         formatterDefinition.setShowLoggerId(XmlUtils.getBooleanValue(formatterElement, "showLoggerId", null));
         formatterDefinition.setLevelInBrackets(XmlUtils.getBooleanValue(formatterElement, "levelInBrackets", null));
         formatterDefinition.setWarnLevelString(XmlUtils.getStringValue(formatterElement, "warnLevelString", null));
-        List<Integer> processorRef = null;
         Element processorRefElement = formatterElement.element("processorRef");
         if (VerifyUtils.notNull(processorRefElement)) {
-            Iterator<Element> idIterator = processorRefElement.elements("id").iterator();
-            processorRef = new ArrayList<>();
-            while (idIterator.hasNext()) {
-                processorRef.add(XmlUtils.getIntegerText(idIterator.next()));
-            }
+            formatterDefinition.setProcessorRef(XmlUtils.getStringValues(processorRefElement, "id"));
         }
-        formatterDefinition.setProcessorRef(processorRef);
         return formatterDefinition;
     }
 
     private PrinterDefinition parsePrinter(Element printerElement) {
         PrinterDefinition printerDefinition = new PrinterDefinition();
-        printerDefinition.setId(XmlUtils.getIntegerAttribute(printerElement, "id", null));
+        printerDefinition.setId(XmlUtils.getStringAttribute(printerElement, "id", null));
         printerDefinition.setClassName(XmlUtils.getStringAttribute(printerElement, "class", null));
         printerDefinition.setPath(XmlUtils.getStringAttribute(printerElement, "path", null));
         printerDefinition.setTypeName(XmlUtils.getStringAttribute(printerElement, "type", null));
         printerDefinition.setDescription(XmlUtils.getStringValue(printerElement, "description", null));
-        List<Integer> processorRef = null;
         Element processorRefElement = printerElement.element("processorRef");
         if (VerifyUtils.notNull(processorRefElement)) {
-            Iterator<Element> idIterator = processorRefElement.elements("id").iterator();
-            processorRef = new ArrayList<>();
-            while (idIterator.hasNext()) {
-                processorRef.add(XmlUtils.getIntegerText(idIterator.next()));
-            }
+            printerDefinition.setProcessorRef(XmlUtils.getStringValues(processorRefElement, "id"));
         }
-        printerDefinition.setProcessorRef(processorRef);
         return printerDefinition;
     }
 
     private LoggerDefinition parseLogger(Element loggerElement) {
         LoggerDefinition loggerDefinition = new LoggerDefinition();
-        loggerDefinition.setId(XmlUtils.getIntegerAttribute(loggerElement, "id", null));
-        loggerDefinition.setPrinterRef(XmlUtils.getIntegerAttribute(loggerElement, "printer-ref", null));
-        loggerDefinition.setFormatterRef(XmlUtils.getIntegerAttribute(loggerElement, "formatter-ref", null));
+        loggerDefinition.setId(XmlUtils.getStringAttribute(loggerElement, "id", null));
+        loggerDefinition.setPrinterRef(XmlUtils.getStringAttribute(loggerElement, "printer-ref", null));
+        loggerDefinition.setFormatterRef(XmlUtils.getStringAttribute(loggerElement, "formatter-ref", null));
         loggerDefinition.setTransmit(XmlUtils.getBooleanAttribute(loggerElement, "transmit", null));
         loggerDefinition.setLevelName(XmlUtils.getStringValue(loggerElement, "level", null));
         loggerDefinition.setScope(XmlUtils.getStringValue(loggerElement, "scope", null));

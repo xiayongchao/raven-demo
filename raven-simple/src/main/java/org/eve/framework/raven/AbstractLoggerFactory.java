@@ -38,13 +38,13 @@ public abstract class AbstractLoggerFactory extends DefaultBeanFactory {
      */
     private static long START_TIME = System.currentTimeMillis();
 
-    private final Map<Integer, FormatterDefinition> formatterDefinitionMap = new HashMap<>();
+    private final Map<String, FormatterDefinition> formatterDefinitionMap = new HashMap<>();
     private final Map<String, AbstractFormatter> formatterMap = new HashMap<>();
 
-    private final Map<Integer, PrinterDefinition> printerDefinitionMap = new HashMap<>();
+    private final Map<String, PrinterDefinition> printerDefinitionMap = new HashMap<>();
     private final Map<String, AbstractPrinter> printerMap = new HashMap<>();
 
-    private final Map<Integer, ProcessorDefinition> processorDefinitionMap = new HashMap<>();
+    private final Map<String, ProcessorDefinition> processorDefinitionMap = new HashMap<>();
     private final Map<String, AbstractFormatPostProcessor> formatPostProcessorMap = new HashMap<>();
     private final Map<String, AbstractPrintPostProcessor> printPostProcessorMap = new HashMap<>();
 
@@ -193,7 +193,7 @@ public abstract class AbstractLoggerFactory extends DefaultBeanFactory {
      * @return
      * @throws RavenException
      */
-    private FormatChain getFormatChain(Integer formatterRef) throws RavenException {
+    private FormatChain getFormatChain(String formatterRef) throws RavenException {
         FormatterDefinition formatterDefinition = this.formatterDefinitionMap.get(formatterRef);
         if (VerifyUtils.isNull(formatterDefinition)) {
             return null;
@@ -219,7 +219,7 @@ public abstract class AbstractLoggerFactory extends DefaultBeanFactory {
             ProcessorDefinition processorDefinition;
             AbstractFormatPostProcessor formatPostProcessor;
             formatPostProcessors = new ArrayList<>();
-            for (Integer processorId : formatterDefinition.getProcessorRef()) {
+            for (String processorId : formatterDefinition.getProcessorRef()) {
                 if (VerifyUtils.isNull(processorId)) {
                     continue;
                 }
@@ -272,7 +272,7 @@ public abstract class AbstractLoggerFactory extends DefaultBeanFactory {
      * @return
      * @throws RavenException
      */
-    private PrintChain getPrintChain(Integer printerRef) throws RavenException {
+    private PrintChain getPrintChain(String printerRef) throws RavenException {
         PrinterDefinition printerDefinition = this.printerDefinitionMap.get(printerRef);
         if (VerifyUtils.isNull(printerDefinition)) {
             return null;
@@ -298,7 +298,7 @@ public abstract class AbstractLoggerFactory extends DefaultBeanFactory {
             ProcessorDefinition processorDefinition;
             AbstractPrintPostProcessor printPostProcessor;
             printPostProcessors = new ArrayList<>();
-            for (Integer processorId : printerDefinition.getProcessorRef()) {
+            for (String processorId : printerDefinition.getProcessorRef()) {
                 if (VerifyUtils.isNull(processorId)) {
                     continue;
                 }
