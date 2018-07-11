@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/raven-core/raven-core.iml" filepath="$PROJECT_DIR$/raven-core/raven-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/raven-demo.iml" filepath="$PROJECT_DIR$/raven-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/raven-simple/raven-simple.iml" filepath="$PROJECT_DIR$/raven-simple/raven-simple.iml" />
-      <module fileurl="file://$PROJECT_DIR$/raven-spring/raven-spring.iml" filepath="$PROJECT_DIR$/raven-spring/raven-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-test/spring-boot-test.iml" filepath="$PROJECT_DIR$/spring-boot-test/spring-boot-test.iml" />
     </modules>
   </component>

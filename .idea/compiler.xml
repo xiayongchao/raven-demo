@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="raven-core" />
         <module name="raven-simple" />
-        <module name="raven-spring" />
         <module name="spring-boot-test" />
       </profile>
     </annotationProcessing>

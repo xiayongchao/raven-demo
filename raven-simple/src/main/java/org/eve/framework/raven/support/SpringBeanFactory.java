@@ -1,20 +1,29 @@
 package org.eve.framework.raven.support;
 
-import org.eve.framework.raven.RavenLoggerFactory;
+import org.eve.framework.raven.bean.DefaultBeanFactory;
 import org.eve.framework.raven.util.VerifyUtils;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
 /**
  * @author xiayc
- * @date 2018/7/10
+ * @date 2018/7/11
  */
-public class SpringRavenLoggerFactory extends RavenLoggerFactory {
+public abstract class SpringBeanFactory extends DefaultBeanFactory {
     private DefaultListableBeanFactory beanFactory;
 
     void setBeanFactory(DefaultListableBeanFactory beanFactory) {
         this.beanFactory = beanFactory;
     }
+
+    /**
+     * 注册RavenBean对象
+     *
+     * @param className
+     * @param beanName
+     * @param object
+     */
+    protected abstract void registerObject(String className, String beanName, Object object);
 
     /**
      * 从spring容器中获取bean

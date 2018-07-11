@@ -25,9 +25,9 @@ public abstract class AbstractBeanFactory {
      */
     private enum FindType {
         //继承
-        EXTEND,
-        //接口
-        INTERFACE;
+        EXTENDS,
+        //实现
+        IMPLEMENTS;
     }
 
     /**
@@ -40,7 +40,7 @@ public abstract class AbstractBeanFactory {
      * @throws ClassNotFoundException
      */
     protected List<Class<?>> findByInterface(Class<?> ifClass, Class<?>... exclusions) throws IOException, ClassNotFoundException {
-        return find(Constants.CLASS_PATH, ifClass, FindType.INTERFACE, exclusions);
+        return find(Constants.CLASS_PATH, ifClass, FindType.IMPLEMENTS, exclusions);
     }
 
     /**
@@ -53,7 +53,7 @@ public abstract class AbstractBeanFactory {
      * @throws ClassNotFoundException
      */
     protected List<Class<?>> findByExtend(Class<?> pClass, Class<?>... exclusions) throws IOException, ClassNotFoundException {
-        return find(Constants.CLASS_PATH, pClass, FindType.EXTEND, exclusions);
+        return find(Constants.CLASS_PATH, pClass, FindType.EXTENDS, exclusions);
     }
 
     /**
@@ -119,7 +119,7 @@ public abstract class AbstractBeanFactory {
                 continue;
             }
             Class<?> superclass;
-            if (FindType.EXTEND.equals(findType)) {
+            if (FindType.EXTENDS.equals(findType)) {
                 if (!Modifier.isAbstract(loadClass.getModifiers())) {
                     superclass = loadClass.getSuperclass();
                     while (VerifyUtils.notNull(superclass) && !superclass.equals(cls)) {
@@ -129,7 +129,7 @@ public abstract class AbstractBeanFactory {
                         classes.add(loadClass);
                     }
                 }
-            } else if (FindType.INTERFACE.equals(findType)) {
+            } else if (FindType.IMPLEMENTS.equals(findType)) {
                 superclass = loadClass;
                 Class<?>[] interfaces;
                 outer:

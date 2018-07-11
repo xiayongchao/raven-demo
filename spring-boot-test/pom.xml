@@ -32,7 +32,7 @@
         </dependency>
 
         <dependency>
-            <artifactId>raven-spring</artifactId>
+            <artifactId>raven-simple</artifactId>
             <groupId>org.eve.framework</groupId>
             <version>1.0.0</version>
         </dependency>

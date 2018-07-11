@@ -23,7 +23,6 @@ package org.slf4j.impl; /**
  */
 
 import org.eve.framework.raven.RavenLoggerFactory;
-import org.eve.framework.raven.util.ClassUtils;
 import org.slf4j.ILoggerFactory;
 import org.slf4j.LoggerFactory;
 import org.slf4j.spi.LoggerFactoryBinder;
@@ -63,21 +62,13 @@ public class StaticLoggerBinder implements LoggerFactoryBinder {
      * The ILoggerFactory instance returned by the {@link #getLoggerFactory}
      * method should always be the same object
      */
-    private final static RavenLoggerFactory RAVEN_LOGGER_FACTORY = initRavenLoggerFactory();
+    private final static RavenLoggerFactory RAVEN_LOGGER_FACTORY = new RavenLoggerFactory();
 
     private StaticLoggerBinder() {
     }
 
     public static RavenLoggerFactory getRavenLoggerFactory() {
         return RAVEN_LOGGER_FACTORY;
-    }
-
-    private static RavenLoggerFactory initRavenLoggerFactory() {
-        String className = "org.eve.framework.raven.support.SpringRavenLoggerFactory";
-        if (ClassUtils.isPresent(className)) {
-            return (RavenLoggerFactory) ClassUtils.newInstance(className);
-        }
-        return new RavenLoggerFactory();
     }
 
     @Override

@@ -1,6 +1,5 @@
 package org.eve.framework.raven;
 
-import org.eve.framework.raven.bean.DefaultBeanFactory;
 import org.eve.framework.raven.constant.Constants;
 import org.eve.framework.raven.constant.PrinterType;
 import org.eve.framework.raven.constant.ProcessorType;
@@ -15,6 +14,7 @@ import org.eve.framework.raven.printer.AbstractPrintPostProcessor;
 import org.eve.framework.raven.printer.AbstractPrinter;
 import org.eve.framework.raven.printer.DefaultPrinter;
 import org.eve.framework.raven.printer.PrintChain;
+import org.eve.framework.raven.support.SpringBeanFactory;
 import org.eve.framework.raven.util.VerifyUtils;
 
 import java.io.File;
@@ -32,7 +32,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @author yc_xia
  * @date 2018/6/22
  */
-public abstract class AbstractLoggerFactory extends DefaultBeanFactory {
+public abstract class AbstractLoggerFactory extends SpringBeanFactory {
     /**
      * logger工厂启动时间
      */
@@ -326,7 +326,8 @@ public abstract class AbstractLoggerFactory extends DefaultBeanFactory {
      * @param beanName
      * @param object
      */
-    public void registerObject(String className, String beanName, Object object) {
+    @Override
+    protected void registerObject(String className, String beanName, Object object) {
         if (VerifyUtils.isNull(object)) {
             return;
         }
@@ -350,7 +351,7 @@ public abstract class AbstractLoggerFactory extends DefaultBeanFactory {
      * @param className
      * @param object
      */
-    public void registerObject(String className, Object object) {
+    private void registerObject(String className, Object object) {
         this.registerObject(className, null, object);
     }
 

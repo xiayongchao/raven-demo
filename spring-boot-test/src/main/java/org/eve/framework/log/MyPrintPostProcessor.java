@@ -1,6 +1,6 @@
 package org.eve.framework.log;
 
-import org.eve.framework.raven.annotation.RavenBean;
+import org.eve.framework.raven.support.RavenBean;
 import org.eve.framework.raven.printer.AbstractPrintPostProcessor;
 import org.eve.framework.service.TestService;
 
@@ -10,7 +10,7 @@ import javax.annotation.Resource;
  * @author yc_xia
  * @date 2018/7/3
  */
-@RavenBean("hgfsdgd")
+@RavenBean
 public class MyPrintPostProcessor extends AbstractPrintPostProcessor {
     @Resource
     private TestService testService;

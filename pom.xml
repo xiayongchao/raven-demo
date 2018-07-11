@@ -11,7 +11,6 @@
     <modules>
         <module>raven-core</module>
         <module>raven-simple</module>
-        <module>raven-spring</module>
     </modules>
 
     <build>
